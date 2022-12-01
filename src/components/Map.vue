@@ -18,7 +18,7 @@ onMounted(async () => {
     projection: { name: "globe" },
     style: "mapbox://styles/mapbox/streets-v11",
     center: defaultCoords,
-    zoom: 10,
+    zoom: 13,
     minZoom: 6,
     maxZoom: 15,
   });
@@ -57,16 +57,15 @@ onMounted(async () => {
     .setLngLat([55.279792, 25.198219])
     .addTo(map);
 
-  function onDragEnd() {
+  function onDrag() {
     const lngLat: any = marker.getLngLat();
-
     console.log(lngLat);
 
     coordinates.style.display = "block";
     coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
   }
 
-  marker.on("dragend", onDragEnd);
+  marker.on("drag", onDrag);
 
   // draggable cursor
   map.on("drag", () => {
@@ -81,7 +80,6 @@ onMounted(async () => {
 <template>
   <div id="map"></div>
   <pre id="coordinates" class="coordinates"></pre>
-  <button>relcoate</button>
 </template>
 
 <style scoped></style>
