@@ -10,3 +10,9 @@ body {
   height: 90vh;
   width: 100%;
 }
+
+#map2 {
+  z-index: 0;
+  height: 90vh;
+  width: 100%;
+}
